@@ -1,5 +1,7 @@
 particleMousejs
 ===============
+[![Code Climate](https://codeclimate.com/github/jlgoldb2/particleMousejs.png)](https://codeclimate.com/github/jlgoldb2/particleMousejs)
+
 
 Particles flow from the mouse cursor
 
