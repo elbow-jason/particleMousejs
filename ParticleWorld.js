@@ -1,3 +1,5 @@
+var Emitter require('Emitter');
+
 var ParticleWorld = function(limit, center){
 	
 	this.limit = (limit || 1000);
@@ -19,20 +21,20 @@ var ParticleWorld = function(limit, center){
 			e.emit(10000);
 		}
 		var deaths = 0;
-		for(var i = 0; i < particles.size()-deaths; ++i){
+		for(var i = 0; i < particles.length-deaths; ++i){
 			if(death){
 				i--;
 				death = false;
 			}
-			if(particles.get(i).isDead()){
-				particles.remove(i);
+			if(particles[i].isDead()){
+				particles.splice(i,1);
 				deaths++;
 			}
 			
-			particles.get(i).applyGravity(dt);
+			particles[i].applyGravity(dt);
 			
-			if(particles.get(i).shouldMove()){
-				particles.get(i).position.add(particles.get(i).velocity);
+			if(particles[i].shouldMove()){
+				particles[i].position.add(particles.get(i).velocity);
 			}
 		}
 	};
