@@ -135,6 +135,6 @@ var Vector =  function(x, y) {
 	
 	// @Override
 	this.ToString = function(){
-		return "Vec2f(" + x + "," + y +")";
+		return "Vector(" + x + "," + y +")";
 	};
 }

@@ -24,15 +24,15 @@ var ParticleWorld = function(limit, center){
 				i--;
 				death = false;
 			}
-			if(particles.get(i).isDead()){
-				particles.remove(i);
+			if(particles[i].isDead()){
+				particles.splice(i,1);
 				deaths++;
 			}
 			
-			particles.get(i).applyGravity(dt);
+			particles[i].applyGravity(dt);
 			
-			if(particles.get(i).shouldMove()){
-				particles.get(i).position.add(particles.get(i).velocity);
+			if(particles[i].shouldMove()){
+				particles[i].position.add(particles[i].velocity);
 			}
 		}
 	};
