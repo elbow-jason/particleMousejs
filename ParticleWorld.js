@@ -1,3 +1,5 @@
+var Emitter require('Emitter');
+
 var ParticleWorld = function(limit, center){
 	
 	this.limit = (limit || 1000);
@@ -19,7 +21,7 @@ var ParticleWorld = function(limit, center){
 			e.emit(10000);
 		}
 		var deaths = 0;
-		for(var i = 0; i < particles.size()-deaths; ++i){
+		for(var i = 0; i < particles.length-deaths; ++i){
 			if(death){
 				i--;
 				death = false;
@@ -32,7 +34,9 @@ var ParticleWorld = function(limit, center){
 			particles[i].applyGravity(dt);
 			
 			if(particles[i].shouldMove()){
+
 				particles[i].position.add(particles[i].velocity);
+
 			}
 		}
 	};
