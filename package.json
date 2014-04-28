@@ -1,0 +1,26 @@
+{
+  "name": "particleMousejs",
+  "version": "0.0.1",
+  "description": "neat mouse effects, hooray!",
+  "main": "Emitter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlgoldb2/particleMousejs.git"
+  },
+  "keywords": [
+    "particle",
+    "mouse",
+    "cursor",
+    "html5",
+    "canvas"
+  ],
+  "author": "Jason Goldberger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jlgoldb2/particleMousejs/issues"
+  },
+  "homepage": "https://github.com/jlgoldb2/particleMousejs"
+}
