@@ -14,31 +14,40 @@
     <script type="text/javascript" src="./particleMain.js"></script>
   </head>
   <body>
-    <canvas id="a" width="1000" height="1000"></canvas>
+    <canvas id="a" width="1000" height="1000" class="clear" style="border:1px dotted;float:left"></canvas>
+    
     <script>
+      var canvasPos         = document.getElementById('a');
+      var canvasParticle    = document.getElementById('a');
 
-      var myCanvas = document.getElementById("a");
-      function writeMessage(canvas, message) {
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
+      function writeMessage(canvasPos, message) {
+        var contextPos = canvasPos.getContext('2d');
+        contextPos.clearRect(0, 0, canvasPos.width, canvasPos.height);
+        contextPos.font = '18pt Calibri';
+        contextPos.fillStyle = 'black';
+        contextPos.fillText(message, 10, 25);
       }
-      function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
+
+
+
+
+
+
+      function getMousePos(canvasPos, evt) {
+        var rect = canvasPos.getBoundingClientRect();
         return {
           x: evt.clientX - rect.left,
           y: evt.clientY - rect.top
         };
       }
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
+     
+      var contextPos        = canvasPos       .getContext('2d');
+      var contextParticle   = canvasParticle  .getContext('2d');
 
-      canvas.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
+      canvasPos.addEventListener('mousemove', function(evt) {
+        var mousePos = getMousePos(canvasPos, evt);
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas, message);
+        writeMessage(canvasPos, message);
       }, false);
 
     </script>
