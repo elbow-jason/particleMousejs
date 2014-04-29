@@ -29,6 +29,14 @@ var CanvasIO = function(canvas){
     this.context.fillText         (message, 10, 25);
   };
 
+  this.writeTime = function(){
+    var timeNow = Date.now();
+    this.context.clearRect        (350, 0, 700, 30);
+    this.context.font             = '18pt Courier'
+    this.context.fillStyle        = 'black';
+    this.context.fillText         (timeNow, 360, 25);
+    };
+
   this.clearParticles = function(){
     this.context.clearRect        (340, 30, 1000,  1000);
     this.context.clearRect        (  0, 30,  340,  1000);
@@ -50,7 +58,6 @@ var CanvasIO = function(canvas){
     for(p in worldObj.particles){ 
       this.context.putImageData(red,   p.position.x,      p.position.y);
     }
-      this.context.putImageData(black, worldObj.center.x, worldObj.center.y);
   };
 
 

@@ -1,24 +1,25 @@
+var Particle = function(pos, vel, life){
 
-var Particle = function(world, x, y, life){
+  this.position = pos;
+  this.velocity = vel;
+  this.life = life;
+  var startTime = Date.now() / 1000000;
 
-	this.position = new Vector(x, y); //position isA Vector
-	this.velocity = new Vector(0,0);  //velocity isA Vector
-	
-	var lifetime = life;
-	this.world = new ParticleWorld;
-	var starttime = (process.hrtime() / 1000000);
+  this.applyGravity= function(world, delta){
+    var angle = this.position.radiansTo(world);
+    var dSecs = 9.8 * (delta / 1000);
+    this.velocity.add(Math.cos(angle) * dSecs, Math.sin(angle) * dSecs);
+  };
 
-	this.applyGravity= function(dt){
-		var y = Math.sin(position.angleTo(world.center)) * 9.8 * (dt / 1000);
-		var x = Math.cos(position.angleTo(world.center)) * 9.8 * (dt / 1000);
-		velocity.add((x < 10.0 && x > -10.0) ? x : 0,(y < 10.0 && y > -10.0) ? y:0);
-	};
-	
-	this.shouldMove = function(){
-		return (velocity.x != 0 || velocity.y != 0);
-	};
-	
-	this.isDead = function(){
-		return (process.hrtime() / 1000000) - starttime >= lifetime;
-	};
+  this.applyVelocity = function(delta){
+    if(this.velocity !== (0,0)){
+      var vel = this.velocity.clone();
+      vel.multiply((delta / 1000));
+      this.position.add(vel);
+    }
+  };
+  this.isDead = function(){
+    return ((Date.now() / 1000000) - startTime >= life);
+  };
+
 };
