@@ -1,16 +1,16 @@
-var particleMath = require('particleMath');
+
 
 
 var EmitterClass = function(pos , angle, persecond, world ) {
 // need random Obj? 
 
 	this.particlesPerSecond  = persecond;
-	var delay 1000 / particlesPerSecond;;
+	var delay = 1000 / particlesPerSecond;;
 	var lastEmitTime= 0;
 		this.world = world;
 		this.position = pos;
 		this.angle = angle;
-	};
+
 	
 
 	this.single = function(pos, vel, life){

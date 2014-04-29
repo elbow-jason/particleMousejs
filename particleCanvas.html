@@ -14,8 +14,10 @@
     <script type="text/javascript" src="./particleMain.js"></script>
   </head>
   <body>
-    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <canvas id="a" width="1000" height="1000"></canvas>
     <script>
+
+      var myCanvas = document.getElementById("a");
       function writeMessage(canvas, message) {
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);

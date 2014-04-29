@@ -1,12 +1,5 @@
 
-var Particle = require('Particle');
-var ParticleWorld = require('particleWorld');
-var Vector = require('particleMath')
- 
-import com.mangopearapples.easycanvas.EasyCanvas; 
-import com.mangopearapples.easycanvas.input.EasyMouse; 
-  
-  
+
 var ParticleSystemTest = function() { 
   
     var world = new ParticleWorld; 
@@ -16,7 +9,7 @@ var ParticleSystemTest = function() {
         EasyCanvas.create(1280, 720); 
         EasyCanvas.setFPS(0); 
           
-        world = new ParticleWorld(1000, new Vec2f(500,500)); 
+        world = new ParticleWorld(1000, new Vector(500,500)); 
         world.newEmitter(new Vector((1280 / 2), (720 / 2)), 0, 1000); 
           
         while(!EasyCanvas.isCloseRequested()){ 

@@ -1,5 +1,3 @@
-var Emitter require('Emitter');
-
 var ParticleWorld = function(limit, center){
 	
 	this.limit = (limit || 1000);
