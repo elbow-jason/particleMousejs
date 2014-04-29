@@ -11,7 +11,7 @@ var ParticleWorld = function(limit, center){
 	};
 	
 	this.newEmitter = function(pos, angle,  persecond){
-		emitters.add(new Emitter(pos, angle, persecond, this));
+		emitters.add(new EmitterClass(pos, angle, persecond, this));
 	};
 
 	this.update = function(dt){

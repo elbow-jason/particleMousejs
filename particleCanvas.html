@@ -14,7 +14,8 @@
     <script type="text/javascript" src="./particleMain.js"></script>
   </head>
   <body>
-    <canvas id="a" width="1000" height="1000" class="clear" style="border:1px dotted;float:left"></canvas>
+    <canvas id="a" width="1000" height="1000" class="clear" 
+        style="border:1px dotted;float:left"></canvas>
     
     <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -34,7 +35,7 @@
       canvasParticle.addEventListener('mousemove', function(evt) {
         var mousePos = getMousePos(canvasParticle, evt);
         canvasWorld.updateXY(mousePos);
-
+        drawParticles(canvasParticle, mousePos);
       })
 
   });

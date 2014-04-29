@@ -5,11 +5,11 @@ var EmitterClass = function(pos , angle, persecond, world ) {
 // need random Obj? 
 
 	this.particlesPerSecond  = persecond;
-	var delay = 1000 / particlesPerSecond;;
-	var lastEmitTime= 0;
-		this.world = world;
-		this.position = pos;
-		this.angle = angle;
+	var delay 				       = 1000 / this.particlesPerSecond;
+	var lastEmitTime	       = 0;
+	this.world 			= world;
+	this.position 	= pos;
+	this.angle 			= angle;
 
 	
 
