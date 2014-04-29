@@ -8,7 +8,7 @@ function writeMessage(canvasPos, message){
 
 
 
-      function drawParticles(canvasParticle, coordObj){
+      function drawMousePos(canvasParticle, coordObj){
 
       var contextParticleToo    = canvasParticle.getContext('2d');
       var imageData             = contextParticleToo.createImageData(1, 1);
@@ -30,9 +30,7 @@ var ParticleSystemTest = function() {
 
     var world = new ParticleWorld; 
     var makeWorld = function(args) { //expect arg to be array of strings 
-        // need to put canvas input here.
 
-          
         world = new ParticleWorld(1000, new Vector(500,500)); 
         world.newEmitter(new Vector((1000 / 2), (1000 / 2)), 0, 1000); 
 

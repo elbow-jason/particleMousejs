@@ -35,7 +35,7 @@
       canvasParticle.addEventListener('mousemove', function(evt) {
         var mousePos = getMousePos(canvasParticle, evt);
         canvasWorld.updateXY(mousePos);
-        drawParticles(canvasParticle, mousePos);
+        drawMousePos(canvasParticle, mousePos);
       })
 
   });
