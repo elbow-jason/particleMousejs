@@ -19,6 +19,19 @@
     
     <script>
     document.addEventListener('DOMContentLoaded', function () {
+      var ParticleSystemTest = function() { 
+      var world     = new ParticleWorld; 
+    
+      var makeWorld = function(args) { //expect arg to be array of strings 
+        world   = new ParticleWorld(1000, new Vector(500,500)); 
+        world.newEmitter(new Vector((1000 / 2), (1000 / 2)), 0, 1000); 
+      };
+
+      this.updateXY = function(coordObj){ 
+        world.center.x = coordObj.x;
+        world.center.y = coordObj.y;
+        };
+      }
 
       var canvasWorld       = new ParticleSystemTest();
       var canvasPos         = document.getElementById('a');
@@ -27,25 +40,17 @@
       var contextParticle   = canvasParticle  .getContext('2d');
 
       canvasPos.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvasPos, evt);
+        var mousePos = phelper.getMousePos(canvasPos, evt);
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvasPos, message);
+        phelper.writeMessage(canvasPos, message);
+        phelper.drawMousePos(canvasParticle, mousePos);
+        canvasWorld.updateXY(mousePos);
+
       }, false);
 
-      canvasParticle.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvasParticle, evt);
-        canvasWorld.updateXY(mousePos);
-        drawMousePos(canvasParticle, mousePos);
-      }, false);
 
       canvasParticle.addEventListener('click', function(evt){
-        clearParticles(canvasParticle);
-      }, false);
-
-      canvasParticle.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvasParticle, evt);
-        canvasWorld.updateXY(mousePos);
-        function(){};
+        phelper.clearParticles(canvasParticle);
       }, false);
 
   });
