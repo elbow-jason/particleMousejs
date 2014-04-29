@@ -36,7 +36,11 @@
         var mousePos = getMousePos(canvasParticle, evt);
         canvasWorld.updateXY(mousePos);
         drawMousePos(canvasParticle, mousePos);
-      })
+      }, false);
+
+      canvasParticle.addEventListener('click', function(evt){
+        clearParticles(canvasParticle);
+      }, false);
 
   });
 
