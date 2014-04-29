@@ -27,10 +27,14 @@ phelper.drawMousePos = function(canvasPos, coordObj){
   contextPos.putImageData(imageData, coordObj.x, coordObj.y);
 }
 
-phelper.drawParticles = function(canvasObj, coordObj){
+phelper.drawParticles = function(canvasObj, coordObj, world){
+  var particleCount         = world.getParticleCount();
   var contextParticle       = canvasObj.getContext('2d');
-  var imageData             = contextPos.createImageData(1, 1);
-
+  var imageData             = contextParticle.createImageData(1, 1);
+      imageData.data[0]     = 255,  // red   color
+      imageData.data[1]     = 0,  // green color
+      imageData.data[2]     = 0,  // blue  color
+      imageData.data[3]     = 255;
 }
 
 phelper.getMousePos = function(canvasPos, evt) {

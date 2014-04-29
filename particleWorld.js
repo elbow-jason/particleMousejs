@@ -1,6 +1,6 @@
 var ParticleWorld = function(limit, center){
 
-  this.limit      = (limit || 1000);
+  this.limit      = (limit || 100);
   this.center     = center || new Vector(0,0);
   var particles   = [];   //fill with Particle Objects
   var emitters    = [];   //fill with Emitter Objects
@@ -10,33 +10,37 @@ var ParticleWorld = function(limit, center){
     emitters.push(e);
   };
 
+  this.destroyEverything = function(){
+    particles = [];
+    emitters = [];
+  };
+
   this.newEmitter = function(pos, angle,  persecond){
     emitters.push(new EmitterClass(pos, angle, persecond, this));
   };
 
-  this.update = function(dt){
-    for(e in emitters){
-      e.emit(100);
-      }
-  var deaths = 0;
-  for(var i = 0; i < particles.length-deaths; ++i){
-  if(death){
-  i--;
-  death = false;
-  }
-  if(particles[i].isDead()){
-  particles.splice(i,1);
-  deaths++;
-  }
+  this.getEmitterCount = function(){
+    return emitters.length;
+  };
+
+  this.getParticleCount = function(){
+    return particles.length;
+  };
+
+  this.update = function(delta){
+    var eDeath = false;
+    for(var i = 0; i < emitters.length; ++i){
+      if(eDeath){i--;}
+    if(particles[i].isDead()){
+      particles.splice(i,1);
+      deaths++;
+    }
 
   particles[i].applyGravity(dt);
-
   if(particles[i].shouldMove()){
-
-  particles[i].position.push(particles[i].velocity);
-
+    particles[i].position.push(particles[i].velocity);
   }
-  }
+  };
   };
 
   };
